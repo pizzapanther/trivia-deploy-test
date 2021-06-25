@@ -1,0 +1,10 @@
+${head}
+<body>
+  <h1>Pick A Question Set</h1>
+  <ul>
+    ${sets.map((qs, i) => `
+      <li><a href="/set/${qs.id}/game/">Question Set ${qs.name}</a></li>
+    `).join('')}
+  </ul>
+</body>
+</html>
