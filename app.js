@@ -3,7 +3,8 @@ var morgan = require('morgan');
 var es6Renderer = require('express-es6-template-engine');
 var session = require('express-session');
 var pgp = require('pg-promise')({});
-var db = pgp({database: 'trivia'});
+var dbsettings = process.env.DATABASE_URL || {database: 'trivia'};
+var db = pgp(dbsettings);
 
 var app = express();
 
@@ -64,7 +65,7 @@ app.post("/set/:qset_id/game/", async (request, response) => {
   }
 });
 
-
-app.listen(8000, function () {
-  console.log('Listening on port 8000');
+var PORT = process.env.PORT || 8000;
+app.listen(PORT, function () {
+  console.log('Listening on port ', PORT);
 });
