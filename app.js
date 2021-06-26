@@ -7,7 +7,7 @@ var dbsettings = process.env.DATABASE_URL;
 if (!dbsettings) {
   dbsettings = {database: 'trivia'};
 } else {
-  dbsettings += '?sslmode=require';
+  //dbsettings += '?sslmode=require';
 }
 
 var db = pgp(dbsettings);
