@@ -3,6 +3,10 @@ var morgan = require('morgan');
 var es6Renderer = require('express-es6-template-engine');
 var session = require('express-session');
 var pgp = require('pg-promise')({});
+pgp.pg.defaults.ssl = {
+  rejectUnauthorized: false
+};
+
 var dbsettings = process.env.DATABASE_URL;
 if (!dbsettings) {
   dbsettings = {database: 'trivia'};
